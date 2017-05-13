@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="安装 安装Homebrew 安装Node:brew install node 安装hexo:sudo npm install -g hexo-cli  使用 初始化博客目录（以Blog为目录名）:">
+<meta name="description" content="安装 安装Homebrew 安装Node:brew install node 安装hexo:sudo npm install -g hexo-cli   使用 初始化博客目录（以Blog为目录名）:">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建博客指南">
 <meta property="og:url" content="http://yoursite.com/2017/05/13/Hexo/index.html">
 <meta property="og:site_name" content="泡泡の小栈">
-<meta property="og:description" content="安装 安装Homebrew 安装Node:brew install node 安装hexo:sudo npm install -g hexo-cli  使用 初始化博客目录（以Blog为目录名）:">
-<meta property="og:updated_time" content="2017-05-13T03:29:20.000Z">
+<meta property="og:description" content="安装 安装Homebrew 安装Node:brew install node 安装hexo:sudo npm install -g hexo-cli   使用 初始化博客目录（以Blog为目录名）:">
+<meta property="og:updated_time" content="2017-05-13T03:52:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建博客指南">
-<meta name="twitter:description" content="安装 安装Homebrew 安装Node:brew install node 安装hexo:sudo npm install -g hexo-cli  使用 初始化博客目录（以Blog为目录名）:">
+<meta name="twitter:description" content="安装 安装Homebrew 安装Node:brew install node 安装hexo:sudo npm install -g hexo-cli   使用 初始化博客目录（以Blog为目录名）:">
 
 
 
@@ -322,53 +322,39 @@
 <li>安装Node:<code>brew install node</code></li>
 <li>安装hexo:<code>sudo npm install -g hexo-cli</code></li>
 </ol>
+<hr>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ol>
-<li><p>初始化博客目录（以Blog为目录名）:<a id="more"></a></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init Blog</div></pre></td></tr></table></figure>
+<li>初始化博客目录（以Blog为目录名）:<a id="more"></a><br> <code>hexo init Blog</code></li>
+<li>参考<a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">在 hexo 中无痛使用本地图片</a>进行以下配置:<ul>
+<li>首先确认 <code>_config.yml</code> 中有 <code>post_asset_folder:true</code>。</li>
+<li>然后在hexo目录下(即Blog目录下)执行:<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></li>
+</ul>
 </li>
+<li>创建文章（以Article为文件名，后续可修改md文件中的title字段来修改文章名）:<br> <code>hexo n Article</code><br> <em>PS:完成第一步中的图片配置后，会在<code>source/_posts</code>中同时生成<code>Article.md</code>和    <code>Article</code>文件夹，把图片(img.png)放在<code>Article</code>文件夹下并在md文件中使用<code>Article/img.png</code>即可成功访问，并在生成静态页面的过程中成功转换成相对路径。</em></li>
+<li>生成静态页面ss:<br> <code>hexo g</code></li>
+<li>启动本地服务预览:<br> <code>hexo s</code><br> <em>PS:启动后访问 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></em></li>
 </ol>
-<pre><code>*PS:参考[在 hexo 中无痛使用本地图片](http://www.tuicool.com/articles/umEBVfI)进行以下配置：*
-
-* *首先确认 `_config.yml` 中有 `post_asset_folder:true`。*
-
-* *然后在hexo目录下(即Blog目录下)执行：*
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install https://github.com/CodeFalling/hexo-asset-image --save</div></pre></td></tr></table></figure>
-</code></pre><ol>
-<li><p>创建文章（以Article为文件名，后续可修改md文件中的title字段来修改文章名）:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo n Article</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>*PS:完成第一步中的图片配置后，会在`source/_posts`中同时生成Article.md和    Article文件夹，把图片(img.png)放在Article文件夹下并在md文件中使用`Article/img.png`即可成功访问，并在生成静态页面的过程中成功转换成相对路径。*
-</code></pre><ol>
-<li><p>生成静态页面:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>启动本地服务预览:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>*PS:启动后访问 [http://localhost:4000/](http://localhost:4000/)*
-</code></pre><h2 id="配置主题（以Next为例）"><a href="#配置主题（以Next为例）" class="headerlink" title="配置主题（以Next为例）"></a>配置主题（以<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next</a>为例）</h2><ol>
+<hr>
+<h2 id="配置主题（以Next为例）"><a href="#配置主题（以Next为例）" class="headerlink" title="配置主题（以Next为例）"></a>配置主题（以<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next</a>为例）</h2><ol>
 <li><p>下载Next主题到themes/next目录下:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<p> <code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
 </li>
-</ol>
-<ol>
-<li>修改<code>_config.yml</code>中的<code>theme</code>字段为<code>next</code></li>
+<li><p>修改<code>_config.yml</code>中的<code>theme</code>字段为<code>next</code></p>
+</li>
 <li><p>重新生成静态文件。</p>
 <p> <em>PS:Next主题更多详细配置参见<a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="external">官方文档</a></em></p>
 </li>
 </ol>
+<hr>
 <h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><ol>
 <li>在GitHub创建新的仓库，命名为\<username\>.github.io。(例如，我的GitHub账户名为IceCreamWu，则创建名为IceCreamWu.github.io的仓库);</username\></li>
-<li><p>配置<code>_config.yml</code>中的<code>deloy</code>字段:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">	deploy:</div><div class="line">  	  type: git</div><div class="line">  	  repo: https://github.com/IceCreamWu/IceCreamWu.github.io.git</div><div class="line">  	  branch: master</div><div class="line">	``` </div><div class="line">3. hexo目录下执行：</div></pre></td></tr></table></figure>
-<p> $ hexo g<br> $ hexo d<br> ```</p>
-<p> <em>PS:如果发生<code>ERROR Deployer not found: git</code>,便先执行以下命令：<br> <code>npm install hexo-deployer-git --save</code></em></p>
-</li>
+<li>配置<code>_config.yml</code>中的<code>deloy</code>字段:<pre><code>deploy:
+    type: git
+    repo: https://github.com/IceCreamWu/IceCreamWu.github.io.git
+    branch: master
+</code></pre></li>
+<li>hexo目录下执行：<br> <code>hexo g
+ hexo d</code><br> <em>PS:如果发生<code>ERROR Deployer not found: git</code>,便先执行以下命令：<br> <code>npm install hexo-deployer-git --save</code></em></li>
 </ol>
 
       
